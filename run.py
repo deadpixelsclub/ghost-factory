@@ -98,6 +98,6 @@ def main(config):
     filename = str(item["id"]) + ".png"
     image.save("./images/" + filename,"PNG")
     
-    print("generated {} of {}".format(item["id"], n))
+    print("generated {} of {}".format(item["id"], config["n"]))
 
 main(config)
