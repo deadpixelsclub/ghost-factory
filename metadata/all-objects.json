@@ -1,31 +1,31 @@
 [
     {
-        "background": "solid_pink",
+        "background": "solid_green",
         "eyes": "expression_eyes",
-        "mouth": "expression_tongue_out",
+        "mouth": "expression_mouth",
         "id": 1
     },
     {
-        "background": "solid_orange",
+        "background": "solid_purple",
         "eyes": "expression_eyes",
-        "mouth": "expression_smirk",
+        "mouth": "expression_tongue_out",
         "id": 2
     },
     {
-        "background": "solid_orange",
+        "background": "solid_blue",
         "eyes": "expression_eyes",
-        "mouth": "expression_mouth",
+        "mouth": "expression_smirk",
         "id": 3
     },
     {
-        "background": "solid_purple",
+        "background": "solid_green",
         "eyes": "expression_eyes",
         "mouth": "expression_smirk",
         "id": 4
     },
     {
-        "background": "solid_blue",
-        "eyes": "eyewear_glasses_aviator",
+        "background": "solid_purple",
+        "eyes": "expression_eyes",
         "mouth": "expression_mouth",
         "id": 5
     }

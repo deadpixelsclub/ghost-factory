@@ -82,7 +82,8 @@ def main(config):
   with open("./metadata/all-objects.json", "w") as outfile:
     json.dump(image_blueprint_list, outfile, indent=4)
   
-  for item in image_blueprint_list:
+  print("Generation process initiated.  Progress will be printed in batches of 100.")
+  for count, item in enumerate(image_blueprint_list):
     layers = [];
     for idx, trait in enumerate(item):
       if trait != "id":
@@ -98,6 +99,10 @@ def main(config):
     filename = str(item["id"]) + ".png"
     image.save("./images/" + filename,"PNG")
     
-    print("generated {} of {}".format(item["id"], config["n"]))
+    if count + 1 % 100 == 0:
+      print("generated {} of {}".format(count + 1, config["n"]))
 
-main(config)
+  print("Finished.  {} of {} generated".format(count + 1, config["n"]))
+
+if __name__ == "__main__":
+  main(config)

@@ -6,11 +6,11 @@
     "attributes": [
         {
             "trait_type": "background",
-            "value": "solid_blue"
+            "value": "solid_purple"
         },
         {
             "trait_type": "eyes",
-            "value": "eyewear_glasses_aviator"
+            "value": "expression_eyes"
         },
         {
             "trait_type": "mouth",
