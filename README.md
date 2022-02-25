@@ -8,7 +8,7 @@ Dead Pixels Club Ghost Factory is a Python program that selects images based on 
 3. Mac may prompt you to install XCode or some other developer tools.  Yes, do that. 
 4. In `Terminal` run this command: `python3 --version` to confirm that Python3 was installed on your machine.  If the output says Python 3 or greater, then proceed to step 5.  If not, you'll need to install Python3 (you may have to Google how until I have time to update this README).
 5. In `Terminal` run this command: `python3 -m pip install --upgrade pip` to update the Python package manager (this is necessary for step 6 to complete successfully).
-6.  In `Terminal` run this command: `pip3 install Pillow` to install the package that has the image layering tools.
+6.  In `Terminal` run this command: `pip3 install -r requirements.txt` to install the package that has the image layering tools.
 7. Open the config.py file and set all your configuration (see comments in config.py).
 8. In `Terminal` navigate to your local copy of this repo and run this command: `python3 run.py` to begin generating the images.
 
