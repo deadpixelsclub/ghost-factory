@@ -131,10 +131,10 @@ dmypy.json
 # exclude everything
 images/*
 metadata/*
-layers/*
+#layers/*
 **/.DS_Store
 
 # exception to the rule
 !images/.gitkeep 
 !metadata/.gitkeep
-!layers/.gitkeep
+#!layers/.gitkeep

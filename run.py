@@ -101,4 +101,4 @@ def main(n, config):
     
     print("generated {} of {}".format(item["id"], n))
 
-main(1000, config)
+main(5, config)
