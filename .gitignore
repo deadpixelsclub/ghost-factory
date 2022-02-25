@@ -133,6 +133,8 @@ dmypy.json
 #metadata/*
 #layers/*
 **/.DS_Store
+*-private/*
+*-private*
 
 # exception to the rule
 #!images/.gitkeep 
