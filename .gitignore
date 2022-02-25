@@ -129,12 +129,12 @@ dmypy.json
 .pyre/
 
 # exclude everything
-images/*
-metadata/*
+#images/*
+#metadata/*
 #layers/*
 **/.DS_Store
 
 # exception to the rule
-!images/.gitkeep 
-!metadata/.gitkeep
+#!images/.gitkeep 
+#!metadata/.gitkeep
 #!layers/.gitkeep

@@ -1,0 +1,32 @@
+[
+    {
+        "background": "solid_pink",
+        "eyes": "expression_eyes",
+        "mouth": "expression_tongue_out",
+        "id": 1
+    },
+    {
+        "background": "solid_orange",
+        "eyes": "expression_eyes",
+        "mouth": "expression_smirk",
+        "id": 2
+    },
+    {
+        "background": "solid_orange",
+        "eyes": "expression_eyes",
+        "mouth": "expression_mouth",
+        "id": 3
+    },
+    {
+        "background": "solid_purple",
+        "eyes": "expression_eyes",
+        "mouth": "expression_smirk",
+        "id": 4
+    },
+    {
+        "background": "solid_blue",
+        "eyes": "eyewear_glasses_aviator",
+        "mouth": "expression_mouth",
+        "id": 5
+    }
+]

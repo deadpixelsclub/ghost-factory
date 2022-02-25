@@ -1,0 +1,28 @@
+{
+    "name": "#1",
+    "description": "Description of project.",
+    "image": "ipfs://NewUriToReplace/1.png",
+    "id": 1,
+    "attributes": [
+        {
+            "trait_type": "background",
+            "value": "solid_pink"
+        },
+        {
+            "trait_type": "eyes",
+            "value": "expression_eyes"
+        },
+        {
+            "trait_type": "mouth",
+            "value": "expression_tongue_out"
+        }
+    ],
+    "creator": "",
+    "category": "",
+    "supply": 100,
+    "properties": {
+        "catalog": [],
+        "extras": []
+    },
+    "compiler": "Dead Pixels Club Ghost Factory"
+}

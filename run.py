@@ -75,7 +75,7 @@ def main(n, config):
       for item in config["additional_metadata"]:
         metadata.update(item)
 
-    metadata.update({"compiler": "dead pixels art engine"})
+    metadata.update({"compiler": "Dead Pixels Club Ghost Factory"})
     
     with open("./metadata/" + str(blueprint["id"]) + ".json", "w") as outfile:
         json.dump(metadata, outfile, indent=4)
