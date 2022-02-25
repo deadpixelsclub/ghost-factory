@@ -38,7 +38,7 @@ def create_image_blueprint(image_blueprint_list, config):
     else:
       return new_image_blueprint
 
-def main(n, config):
+def main(config):
   config["trait_type_configs"] = [get_trait_type_config(config["trait_base_path"], trait_type) for trait_type in config["trait_type_order"]]
 
   trait_filenames = {}
@@ -49,7 +49,7 @@ def main(n, config):
       trait_filenames[i["name"]][key] = i["filenames"][idx];
   
   image_blueprint_list = []
-  for i in range(n): 
+  for i in range(config["n"]):
     image_blueprint = create_image_blueprint(image_blueprint_list, config)
     image_blueprint_list.append(image_blueprint)
 
@@ -101,4 +101,4 @@ def main(n, config):
     
     print("generated {} of {}".format(item["id"], n))
 
-main(5, config)
+main(config)
