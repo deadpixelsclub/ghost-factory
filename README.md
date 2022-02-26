@@ -40,7 +40,7 @@ This is an example `config.py` file:
       "trait_name2": ["trait_name_4", trait_name_5],
     },
   "ignore_duplicate_trait": "background",
-  "trait_base_path": "./traits/", # Name of folder containing trait types and their respective trait files
+  "trait_base_path": "./traits/",
   "base_image_uri": "ipfs://NewUriToReplace/", 
   "image_size": (1410, 1410), #(height, width)
   "name_prefix": "#", 
