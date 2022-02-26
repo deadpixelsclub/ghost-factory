@@ -24,20 +24,37 @@ def get_trait_type_config(trait_base_path, trait_type):
   trait_type_config["weights"] = [parse_filename(f)[2] for f in listdir_nohidden(filepath)]
   return trait_type_config
 
-def create_image_blueprint(image_blueprint_list, config):
-    new_image_blueprint = {i['name']: random.choices(i["values"], i["weights"])[0] for i in config["trait_type_configs"]}
-    
-    for trait_a, conflict_list in config["conflicts"].items():
-      for trait_b in conflict_list:
-        if trait_a in str(new_image_blueprint) and trait_b in str(new_image_blueprint):
-          return create_image_blueprint(image_blueprint_list, config)
+def remove_key(d, key):
+  r = dict(d)
+  del r[key]
+  return r
 
-    if new_image_blueprint in image_blueprint_list:
+def create_image_blueprint(image_blueprint_list, config):
+  new_image_blueprint = {i['name']: random.choices(i["values"], i["weights"])[0] for i in config["trait_type_configs"]}
+  for trait_a, conflict_list in config["conflicts"].items():
+    for trait_b in conflict_list:
+      if trait_a in str(new_image_blueprint) and trait_b in str(new_image_blueprint):
+        return create_image_blueprint(image_blueprint_list, config)
+
+  if new_image_blueprint in image_blueprint_list:
+    return create_image_blueprint(image_blueprint_list, config)
+
+  if "ignore_duplicate_trait" in config:
+    _new_image_blueprint = remove_key(new_image_blueprint, config['ignore_duplicate_trait'])
+    _image_blueprint_list = [remove_key(i, config['ignore_duplicate_trait']) for i in image_blueprint_list]
+    if _new_image_blueprint in _image_blueprint_list:
       return create_image_blueprint(image_blueprint_list, config)
-    else:
-      return new_image_blueprint
+
+  return new_image_blueprint
+
+def reset_directory(path):
+  for f in os.listdir(path):
+    os.remove(os.path.join(path, f))
 
 def main(config):
+  reset_directory("./metadata/")
+  reset_directory("./images/")
+
   config["trait_type_configs"] = [get_trait_type_config(config["trait_base_path"], trait_type) for trait_type in config["trait_type_order"]]
 
   trait_filenames = {}
@@ -82,7 +99,7 @@ def main(config):
   with open("./metadata/all-objects.json", "w") as outfile:
     json.dump(image_blueprint_list, outfile, indent=4)
   
-  print("Generation process initiated.  Progress will be printed in batches of 100.")
+  print("Generating...")
   for count, item in enumerate(image_blueprint_list):
     layers = [];
     for idx, trait in enumerate(item):
@@ -99,7 +116,7 @@ def main(config):
     filename = str(item["id"]) + ".png"
     image.save("./images/" + filename,"PNG")
     
-    if count + 1 % 100 == 0:
+    if (count + 1) % 100 == 0:
       print("generated {} of {}".format(count + 1, config["n"]))
 
   print("Finished.  {} of {} generated".format(count + 1, config["n"]))

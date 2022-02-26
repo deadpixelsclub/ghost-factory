@@ -6,7 +6,7 @@
     "attributes": [
         {
             "trait_type": "background",
-            "value": "solid_green"
+            "value": "solid_purple"
         },
         {
             "trait_type": "eyes",
@@ -14,7 +14,7 @@
         },
         {
             "trait_type": "mouth",
-            "value": "expression_mouth"
+            "value": "expression_smirk"
         }
     ],
     "creator": "",

@@ -1,26 +1,26 @@
 [
     {
-        "background": "solid_green",
+        "background": "solid_purple",
         "eyes": "expression_eyes",
-        "mouth": "expression_mouth",
+        "mouth": "expression_smirk",
         "id": 1
     },
     {
-        "background": "solid_purple",
+        "background": "solid_blue",
         "eyes": "expression_eyes",
         "mouth": "expression_tongue_out",
         "id": 2
     },
     {
-        "background": "solid_blue",
-        "eyes": "expression_eyes",
-        "mouth": "expression_smirk",
+        "background": "solid_orange",
+        "eyes": "expression_eyebrow_raised_right",
+        "mouth": "expression_tongue_out",
         "id": 3
     },
     {
-        "background": "solid_green",
-        "eyes": "expression_eyes",
-        "mouth": "expression_smirk",
+        "background": "solid_pink",
+        "eyes": "expression_eyebrow_raised_right",
+        "mouth": "expression_mouth",
         "id": 4
     },
     {
@@ -28,5 +28,29 @@
         "eyes": "expression_eyes",
         "mouth": "expression_mouth",
         "id": 5
+    },
+    {
+        "background": "solid_green",
+        "eyes": "expression_eyebrow_raised_right",
+        "mouth": "expression_smirk",
+        "id": 6
+    },
+    {
+        "background": "solid_green",
+        "eyes": "eyewear_glasses_aviator",
+        "mouth": "expression_tongue_out",
+        "id": 7
+    },
+    {
+        "background": "solid_orange",
+        "eyes": "eyewear_glasses_aviator",
+        "mouth": "expression_smirk",
+        "id": 8
+    },
+    {
+        "background": "solid_purple",
+        "eyes": "eyewear_glasses_aviator",
+        "mouth": "expression_mouth",
+        "id": 9
     }
 ]

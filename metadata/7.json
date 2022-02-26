@@ -1,16 +1,16 @@
 {
-    "name": "#2",
+    "name": "#7",
     "description": "Description of project.",
-    "image": "ipfs://NewUriToReplace/2.png",
-    "id": 2,
+    "image": "ipfs://NewUriToReplace/7.png",
+    "id": 7,
     "attributes": [
         {
             "trait_type": "background",
-            "value": "solid_blue"
+            "value": "solid_green"
         },
         {
             "trait_type": "eyes",
-            "value": "expression_eyes"
+            "value": "eyewear_glasses_aviator"
         },
         {
             "trait_type": "mouth",

@@ -6,15 +6,15 @@
     "attributes": [
         {
             "trait_type": "background",
-            "value": "solid_green"
+            "value": "solid_pink"
         },
         {
             "trait_type": "eyes",
-            "value": "expression_eyes"
+            "value": "expression_eyebrow_raised_right"
         },
         {
             "trait_type": "mouth",
-            "value": "expression_smirk"
+            "value": "expression_mouth"
         }
     ],
     "creator": "",
