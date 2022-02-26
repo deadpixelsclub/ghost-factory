@@ -39,9 +39,9 @@ def create_image_blueprint(image_blueprint_list, config):
   if new_image_blueprint in image_blueprint_list:
     return create_image_blueprint(image_blueprint_list, config)
 
-  if "ignore_duplicate_trait" in config:
-    _new_image_blueprint = remove_key(new_image_blueprint, config['ignore_duplicate_trait'])
-    _image_blueprint_list = [remove_key(i, config['ignore_duplicate_trait']) for i in image_blueprint_list]
+  if "skip_similar" in config:
+    _new_image_blueprint = remove_key(new_image_blueprint, config['skip_similar'])
+    _image_blueprint_list = [remove_key(i, config['skip_similar']) for i in image_blueprint_list]
     if _new_image_blueprint in _image_blueprint_list:
       return create_image_blueprint(image_blueprint_list, config)
 

@@ -39,7 +39,7 @@ This is an example `config.py` file:
       "trait_name1": ["trait_name_2", "trait_name_3"],
       "trait_name2": ["trait_name_4", trait_name_5],
     },
-  "ignore_duplicate_trait": "background",
+  "skip_similar": "background",
   "trait_base_path": "./traits/",
   "base_image_uri": "ipfs://NewUriToReplace/", 
   "image_size": (1410, 1410), #(height, width)
@@ -60,7 +60,7 @@ This is an example `config.py` file:
 - `trait_type_order` = List where the first element is the lowest layer of the stacked images.
 - `n` = Number of images to be generated.
 - `conflicts` = Key-value pair where the key is a single trait name and the value is a list of one or more trait names that conflict with it.
-- `ignore_duplicate_trait` = If this key is in the config file, then the program will ignore the given trait type when determining if a given image has already been generated.  For example, if image A and image B have different background colors but are otherwise identical, they will be considered identical if the value in this field is `background`.
+- `skip_similar` = If this key is in the config file, then the program will ignore the given trait type when determining if a given image has already been generated.  For example, if image A and image B have different background colors but are otherwise identical, they will be considered identical if the value in this field is `background`.
 - `trait_base_path` = Parent directory that contains the trait_type folders (e.g., background, eyes, mouth, etc).
 - `base_image_uri` = Base URI of image location.
 - `image_size` = Pixel dimensions of trait files.
