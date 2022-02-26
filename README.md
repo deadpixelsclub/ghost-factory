@@ -31,6 +31,7 @@ If you run into any issues or have questions, feel free to open an issue in Gith
 
 This is an example `config.py` file:
 
+```
 {
   "trait_type_order": ["background", "eyes", "mouth"], 
   "n": 9, 
@@ -54,6 +55,7 @@ This is an example `config.py` file:
                             }
                           ]
 }
+```
 
 - `trait_type_order` = List where the first element is the lowest layer of the stacked images.
 - `n` = Number of images to be generated.
