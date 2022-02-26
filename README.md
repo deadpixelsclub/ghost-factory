@@ -36,8 +36,8 @@ This is an example `config.py` file:
   "trait_type_order": ["background", "eyes", "mouth"], 
   "n": 9, 
   "conflicts": { 
-      "trait_name": ["conflicting_trait_name_1", "conflicting_trait_name_2", "conflicting_trait_name_3"],
-      "trait_name2": ["conflicting_trait_name_1", "conflicting_trait_name_2", "conflicting_trait_name_3"],
+      "trait_name1": ["trait_name_2", "trait_name_3"],
+      "trait_name2": ["trait_name_4", trait_name_5],
     },
   "ignore_duplicate_trait": "background",
   "trait_base_path": "./traits/", # Name of folder containing trait types and their respective trait files
