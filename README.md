@@ -50,15 +50,24 @@ This is an example `config.py` file:
 }
 ```
 
-- `trait_type_order` = The names in this list should be the same as the names of the folders in the `traits` folder.  The first trait type in the list will be treated as the lowest layer of the stacked images (typically, this would be the background).  The last trait type will be treated as the highest layer.
 - `n` = Number of images to be generated.
-- `conflicts` = Key-value pair where the key is a single trait name and the value is a list of one or more trait names that conflict with it.  In the above config example, images with a solid blue background will never contain the traits named `expression_eyes` or `expression_smirk`.  You may wish to configure `conflicts` for cases where two or more traits are not compatible, don't look good together, or for some other creative reason.
-- `skip_similar` = If this key is in the config file, then the program will ignore the given trait type when determining if a given image has already been generated.  In the above config example, if image A and image B are identical in every way except for the `background` trait, then for the purposes of generating unique images they will be considered identical and one of them will NOT be generated.  
-- `trait_base_path` = Parent directory that contains the trait_type folders (e.g., background, eyes, mouth, etc).
-- `base_image_uri` = Base URI of image location.
+
 - `image_size` = Pixel dimensions of the image (height, width).
+
 - `name_prefix` = This gets prepended to the number of each generated image.  In the above config example, the images will be named `#1, #2, etc`, but if we set the `name_prefix` to "Ghost #", then the images will be named `Ghost #1, Ghost #2, etc`.
+
 - `description` = Description of project.
+
+- `trait_base_path` = Parent directory that contains the trait_type folders (e.g., background, eyes, mouth, etc).
+
+- `trait_type_order` = The names in this list should be the same as the names of the folders in the `traits` folder.  The first trait type in the list will be treated as the lowest layer of the stacked images (typically, this would be the background).  The last trait type will be treated as the highest layer.
+
+- `base_image_uri` = Base URI of image location.
+
+- `conflicts` = Key-value pair where the key is a single trait name and the value is a list of one or more trait names that conflict with it.  In the above config example, images with a solid blue background will never contain the traits named `expression_eyes` or `expression_smirk`.  You may wish to configure `conflicts` for cases where two or more traits are not compatible, don't look good together, or for some other creative reason.
+
+- `skip_similar` = If this key is in the config file, then the program will ignore the given trait type when determining if a given image has already been generated.  In the above config example, if image A and image B are identical in every way except for the `background` trait, then for the purposes of generating unique images they will be considered identical and one of them will NOT be generated.  
+
 - `additional_metadata` = Anything that you may wish to include in the parent level of the metadata for each image.
 
 
