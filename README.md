@@ -1,30 +1,48 @@
-# ghost-factory
+# Dead Pixels Club Ghost Factory
 
 Dead Pixels Club Ghost Factory is a Python program that selects images based on weights and then stacks them to generate a specified number of unique images in png format.  The distinguishing feature of this program is that it allows the user to omit images that contain conflicting traits as well as images that may be unique but too similar.
 
-## How It Works
-
-Coming soon...
-
-## Steps (MacOS)
+## Install (MacOS)
 
 1. Open `Terminal` or other command line tool and navigate to a location where you'd like to install the Ghost Factory.
 2. Clone this repo via by running this command on the command line:  `git clone https://github.com/deadpixelsclub/ghost-factory-private.git`.
 3. Mac may prompt you to install XCode or some other developer tools.  Yes, do that. 
 4. In `Terminal` run this command: `python3 --version` to confirm that Python3 was installed on your machine.  If the output says Python 3 or greater, then proceed to step 5.  If not, you'll need to install Python3 (you may have to Google how until I have time to update this README).
 5. In `Terminal` run this command: `python3 -m pip install --upgrade pip` to update the Python package manager (this is necessary for step 6 to complete successfully).
-6.  In `Terminal` run this command: `pip3 install -r requirements.txt` to install the package that has the image layering tools.
-7. Open the config.py file and set all your configurations (see comments in config.py).
-8. In `Terminal` navigate to your local copy of this repo and run this command: `python3 ghost_factory.py` to begin generating the images.
+6. In `Terminal` run this command: `pip3 install -r requirements.txt` to install the package that has the image layering tools.
+7. In `Terminal` navigate to your local copy of this repo and run this command: `python3 ghost_factory.py` to begin generating the test images.
 
 If you run into any issues or have questions, feel free to open an issue in Github and we'll look into it.
+
+## How To
+
+1. Place image files associated with each trait (or "attributes" or "layers" or whatever you want to call them) in their respective trait type folder (i.e., background, eye, mouth, etc) inside of the `traits` folder.  You may set the relative weight of each trait by changing the filename to include a `#<weight>` at the end (see the Weights section below for more information).  The `traits` folder should have the following structure:
+
+```
+  .
+  └── traits
+      ├── background
+      │   ├── red#1.png
+      │   └── blue#1.png
+      ├── eyes
+      │   ├── blink#1.png
+      │   └── squint#1.png
+      └── mouth
+          ├── smile#1.png
+          └── smirk#1.png
+
+```
+
+2. Open the `config.py` file and set all your configurations (see Config below for instructions).
+3. Open `Terminal`, navigate to your local copy of this repo, and run this command: `python3 ghost_factory.py` to begin generating your images.
 
 
 ### Weights
 
-- The weights are pulled from the filenames in the traits directory.  The individual traits should be named as follows:  `value#weight.png`.
+- The weights are pulled from the filenames in the traits directory.  The individual traits may be named as follows:  `name#weight.png`.
 - The weights are relative to each other within each trait type.  For example, if we have 3 background trait files named red#1.png, blue#3.png, and yellow#5.png, then yellow will be selected more often than blue, and blue will be selected more often than red.  The exact weight methodology is determined by the `random.choice` function in the `random` package.  You can read about it here:  https://docs.python.org/3/library/random.html#random.choices.
 - A `0` weight means the trait will NEVER be selected, so you can turn layers on/off by setting their weights to zero.
+- If you do not include weights, each trait within a given trait type will have the same probability of being chosen.
 
 
 ### Config
