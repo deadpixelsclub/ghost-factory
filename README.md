@@ -33,7 +33,7 @@ If you run into any issues or have questions, feel free to open an issue in Gith
 
 ```
 
-2. Open the `config.py` file and set all your configurations (see Config below for instructions).
+2. Open the `config.py` file and set all your configurations (see the Config section below for instructions).
 3. Open `Terminal`, navigate to your local copy of this repo, and run this command: `python3 ghost_factory.py` to begin generating your images.
 
 
