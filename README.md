@@ -1,6 +1,6 @@
 # ghost-factory
 
-Dead Pixels Club Ghost Factory is a Python program that selects images based on weights and then stacks them to generate a specified number of unique images in png format.  The distinguishing feature of this program is that it allows the user to omit images that contain conflicting traits as well as images that may be too similar despite being technically unique.
+Dead Pixels Club Ghost Factory is a Python program that selects images based on weights and then stacks them to generate a specified number of unique images in png format.  The distinguishing feature of this program is that it allows the user to omit images that contain conflicting traits as well as images that may be unique but too similar.
 
 ## How It Works
 
