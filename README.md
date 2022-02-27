@@ -22,7 +22,7 @@ If you run into any issues or have questions, feel free to open an issue in Gith
 
 ### Weights
 
-- The weights are pulled from the filenames in the traits directory.  The individual traits should be named as follows:  value#weight.png.
+- The weights are pulled from the filenames in the traits directory.  The individual traits should be named as follows:  `value#weight.png`.
 - The weights are relative to each other within each trait type.  For example, if we have 3 background trait files named red#1.png, blue#3.png, and yellow#5.png, then yellow will be selected more often than blue, and blue will be selected more often than red.  The exact weight methodology is determined by the `random.choice` function in the `random` package.  You can read about it here:  https://docs.python.org/3/library/random.html#random.choices.
 - A `0` weight means the trait will NEVER be selected, so you can turn layers on/off by setting their weights to zero.
 
