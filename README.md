@@ -34,7 +34,7 @@ This is an example `config.py` file:
 ```
 {
   "trait_type_order": ["background", "eyes", "mouth"], 
-  "n": 9, 
+  "n": 5, 
   "conflicts": { 
       "solid_blue": ["expression_eyes", "expression_smirk"],
       "expression_smirk": ["eyewear_glasses_aviator"],
@@ -46,7 +46,7 @@ This is an example `config.py` file:
   "name_prefix": "#", 
   "description": "Description of project.",
   "additional_metadata": [{"creator": "Your Name"},
-                          {"supply": 100}]
+                          {"supply": 5}]
 }
 ```
 
