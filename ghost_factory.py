@@ -10,7 +10,7 @@ def listdir_nohidden(path):
       yield f
 
 def parse_filename(filename):
-  value = filename.split("#")[0].split("$")[0]
+  value = filename.split("#")[0]
   filename_no_ext = filename.split(".")[0]
   weight = int(filename_no_ext.split("#")[1])
   return value, filename_no_ext, weight 
@@ -78,7 +78,7 @@ def main(config):
     attributes = []
     for key in blueprint:
       if key != "id":
-        attributes.append({"trait_type": key, "value": blueprint[key]})
+        attributes.append({"trait_type": key, "value": blueprint[key].split("$")[0]})
     
     metadata = {
         "name":  config["name_prefix"] + str(blueprint["id"]),
