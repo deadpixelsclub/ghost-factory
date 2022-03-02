@@ -24,8 +24,6 @@ def get_trait_type_config(trait_base_path, trait_type):
   trait_type_config["weights"] = [parse_filename(f)[2] for f in listdir_nohidden(filepath)]
   return trait_type_config
 
-
-
 def remove_key(d, key):
   r = dict(d)
   del r[key]
@@ -39,11 +37,11 @@ def create_image_blueprint(image_blueprint_list, config):
 
   new_image_blueprint = {i['name']: random.choices(i["values"], i["weights"])[0] for i in config["trait_type_configs"]}
 
-  # trait limits
+  # trait changes
   for trait_type, value in new_image_blueprint.items():
     for limit in config['force_changes']:
         if limit['trait_type'] in trait_type and limit['value'] in value:
-            for trait_type_to_change, value_to_change_to in limit['force_changes'].items():
+            for trait_type_to_change, value_to_change_to in limit['changes'].items():
                 new_image_blueprint[trait_type_to_change] = value_to_change_to
 
   # skip conflicts
@@ -119,7 +117,7 @@ def main(config):
     with open("./metadata/" + str(blueprint["id"]) + ".json", "w") as outfile:
         json.dump(metadata, outfile, indent=4)
 
-  with open("./metadata/all-objects.json", "w") as outfile:
+  with open("./all-objects.json", "w") as outfile:
     json.dump(image_blueprint_list, outfile, indent=4)
   
   print("Generating...")
