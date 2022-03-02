@@ -24,21 +24,44 @@ def get_trait_type_config(trait_base_path, trait_type):
   trait_type_config["weights"] = [parse_filename(f)[2] for f in listdir_nohidden(filepath)]
   return trait_type_config
 
+
+
 def remove_key(d, key):
   r = dict(d)
   del r[key]
   return r
 
 def create_image_blueprint(image_blueprint_list, config):
+  
+  # config['trait_type_configs']  -->  [{'name': 'background', 'values': ['blue', 'orange']}, {}. {}, ...]
+  # new_image_blueprint           -->  {'background: 'blue', 'skin': 'white', ...}
+  # config["conflicts"]           -->  [{'trait_type': 'background', 'value': 'blue', 'conflicts': ['hat_blue', ...]}, {}, {}, ...]
+
   new_image_blueprint = {i['name']: random.choices(i["values"], i["weights"])[0] for i in config["trait_type_configs"]}
-  for trait_a, conflict_list in config["conflicts"].items():
-    for trait_b in conflict_list:
-      if trait_a in str(new_image_blueprint) and trait_b in str(new_image_blueprint):
+
+  # trait limits
+  for trait_type, value in new_image_blueprint.items():
+    for limit in config['force_changes']:
+        if limit['trait_type'] in trait_type and limit['value'] in value:
+            for trait_type_to_change, value_to_change_to in limit['force_changes'].items():
+                new_image_blueprint[trait_type_to_change] = value_to_change_to
+
+  # skip conflicts
+  for c in config["conflicts"]:
+    for trait in new_image_blueprint:
+      if c["value"] in new_image_blueprint[c["trait_type"]] and new_image_blueprint[trait] in c["conflicts"]:
         return create_image_blueprint(image_blueprint_list, config)
 
+  #for trait_a, conflict_list in config["conflicts"].items():
+  #  for trait_b in conflict_list:
+  #    if trait_a in str(new_image_blueprint) and trait_b in str(new_image_blueprint):
+  #      return create_image_blueprint(image_blueprint_list, config)
+
+  # skip duplicates
   if new_image_blueprint in image_blueprint_list:
     return create_image_blueprint(image_blueprint_list, config)
 
+  # skip similar
   if "skip_similar" in config:
     _new_image_blueprint = remove_key(new_image_blueprint, config['skip_similar'])
     _image_blueprint_list = [remove_key(i, config['skip_similar']) for i in image_blueprint_list]
