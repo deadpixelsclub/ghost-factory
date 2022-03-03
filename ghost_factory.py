@@ -40,9 +40,9 @@ def create_image_blueprint(image_blueprint_list, config):
   # trait changes
   for trait_type, value in new_image_blueprint.items():
     for limit in config['force_changes']:
-        if limit['trait_type'] in trait_type and limit['value'] in value:
-            for trait_type_to_change, value_to_change_to in limit['changes'].items():
-                new_image_blueprint[trait_type_to_change] = value_to_change_to
+      if limit['trait_type'] in trait_type and limit['value'] in value:
+        for trait_type_to_change, value_to_change_to in limit['changes'].items():
+          new_image_blueprint[trait_type_to_change] = value_to_change_to
 
   # skip conflicts
   for c in config["conflicts"]:
@@ -72,7 +72,7 @@ def reset_directory(path):
   for f in os.listdir(path):
     os.remove(os.path.join(path, f))
 
-def main(config):
+def main(config, metadata_only=False):
   reset_directory("./metadata/")
   reset_directory("./images/")
 
@@ -120,6 +120,9 @@ def main(config):
   with open("./all-objects.json", "w") as outfile:
     json.dump(image_blueprint_list, outfile, indent=4)
   
+  if metadata_only:
+    return
+
   print("Generating...")
   for count, item in enumerate(image_blueprint_list):
     layers = [];
