@@ -37,23 +37,11 @@ def create_image_blueprint(image_blueprint_list, config):
 
   new_image_blueprint = {i['name']: random.choices(i["values"], i["weights"])[0] for i in config["trait_type_configs"]}
 
-  # trait changes
-  for trait_type, value in new_image_blueprint.items():
-    for limit in config['force_changes']:
-      if limit['trait_type'] in trait_type and limit['value'] in value:
-        for trait_type_to_change, value_to_change_to in limit['changes'].items():
-          new_image_blueprint[trait_type_to_change] = value_to_change_to
-
   # skip conflicts
   for c in config["conflicts"]:
     for trait in new_image_blueprint:
       if c["value"] in new_image_blueprint[c["trait_type"]] and new_image_blueprint[trait] in c["conflicts"]:
         return create_image_blueprint(image_blueprint_list, config)
-
-  #for trait_a, conflict_list in config["conflicts"].items():
-  #  for trait_b in conflict_list:
-  #    if trait_a in str(new_image_blueprint) and trait_b in str(new_image_blueprint):
-  #      return create_image_blueprint(image_blueprint_list, config)
 
   # skip duplicates
   if new_image_blueprint in image_blueprint_list:
