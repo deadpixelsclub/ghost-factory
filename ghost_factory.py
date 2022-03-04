@@ -60,7 +60,7 @@ def reset_directory(path):
   for f in os.listdir(path):
     os.remove(os.path.join(path, f))
 
-def main(config, metadata_only=False):
+def main(config, metadata_only=False, color="white"):
   reset_directory("./metadata/")
   reset_directory("./images/")
 
@@ -121,7 +121,7 @@ def main(config, metadata_only=False):
         trait_filename = trait_filenames[trait][item[trait]]
         layers[idx] = Image.open("{}/{}.png".format(trait_path, trait_filename))
 
-    image = Image.new(mode="RGBA", size=config["image_size"], color="white")
+    image = Image.new(mode="RGBA", size=config["image_size"], color=color)
     for layer in layers:
       image = Image.alpha_composite(image, layer.convert("RGBA"))
     
