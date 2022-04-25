@@ -1,6 +1,6 @@
 config = {
   "n": 5, 
-  "image_size": (1410, 1410)
+  "image_size": (1410, 1410),
   "name_prefix": "#", 
   "description": "Description of project.",
   "trait_base_path": "./traits/",
